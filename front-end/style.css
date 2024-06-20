@@ -1,0 +1,215 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #e8f5e9;
+    color: #333;
+}
+
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1280px;
+    height: 75px;
+}
+
+header .container .logo {
+    height: 5rem;
+}
+
+header .container nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+header .container nav a:hover {
+    color: #4CAF50;
+}
+
+header .container .contato {
+    display: flex;
+    align-items: center;
+}
+
+header .container .contato p {
+    margin-right: 1rem;
+}
+
+.img {
+    max-width: 150px;
+    max-height: 65px;
+}
+
+.contato {
+    background-color: #f2f2f2;
+    padding: 2rem;
+}
+
+.contato .container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contato h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.contato p {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contato form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contato label {
+    margin-bottom: 0.5rem;
+}
+
+.contato input[type="text"],
+.contato input[type="email"],
+.contato textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contato textarea {
+    height: 200px;
+}
+
+.contato button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contato button[type="submit"]:hover {
+    background-color: #388e3c;
+}
+
+.hero {
+    background-image: url("hero-image.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.hero .button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 0.5rem 2rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.hero .button:hover {
+    background-color: #388e3c;
+}
+
+.sobre {
+    background-color: #fff;
+    padding: 4rem 0;
+}
+
+.sobre h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.sobre p {
+    font-size: 1.2rem;
+    max-width: 60rem;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.servicos {
+    background-color: #e8f5e9;
+    padding: 4rem 0;
+}
+
+.servicos h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-gap: 2rem;
+    justify-content: center;
+}
+
+.servico {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 0.25rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.servico img {
+    width: 100%;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.servico h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.servico p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
