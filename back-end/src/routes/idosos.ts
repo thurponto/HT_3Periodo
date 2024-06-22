@@ -12,17 +12,16 @@ router.post("/idosos", async (req: Request, res: Response) => {
 
   // Validate idade
   if (!idoso.idade || isNaN(idoso.idade) || idoso.idade < 0) {
-    return res.status(400).json({ error: 'Idade é obrigatória e deve ser um número positivo' });
+    return res.status(400).json({ error: 'Idade é obrigatório e deve ser um número positivo' });
   }
 
-  // Validate alergias
-  if (idoso.alergias &&!Array.isArray(idoso.alergias)) {
-    return res.status(400).json({ error: 'Alergias deve ser um array' });
+  if (!idoso.alergias || !Array.isArray(idoso.alergias) || idoso.alergias.length === 0) {
+    return res.status(400).json({ error: 'Alergias é obrigatório' });
   }
 
   // Validate condicoes_medicas
-  if (idoso.condicoes_medicas &&!Array.isArray(idoso.condicoes_medicas)) {
-    return res.status(400).json({ error: 'Condições médicas deve ser um array' });
+  if (!idoso.condicoes_medicas || !Array.isArray(idoso.condicoes_medicas) || idoso.condicoes_medicas.length === 0) {
+    return res.status(400).json({ error: 'Condições médicas é obrigatório' });
   }
 
   try {
@@ -33,10 +32,10 @@ router.post("/idosos", async (req: Request, res: Response) => {
       JSON.stringify(idoso.condicoes_medicas)
     ]);
 
-    res.status(201).json({ message: 'Idoso criado com sucesso' });
+    res.status(201).json({ message: 'registrado com sucesso' });
   } catch (error) {
     console.error("Erro ao criar idoso:", error);
-    res.status(500).json({ error: 'Ocorreu um erro ao criar o idoso' });
+    res.status(500).json({ error: 'Ocorreu um erro ao registrar' });
   }
 });
 
