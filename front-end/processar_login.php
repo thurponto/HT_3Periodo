@@ -1,31 +1,24 @@
 <?php
-require_once "config.php";
+require 'config.php';
 
-// Obter dados do formulário
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-// Consultar banco de dados para verificar usuário
-$sql = "SELECT * FROM usuarios WHERE username='$username'";
-$result = $conn->query($sql);
+$response = file_get_contents(API_URL . '/login', false, stream_context_create([
+    'http' => [
+        'method' => 'POST',
+        'header' => 'Content-type: application/json',
+        'content' => json_encode(['username' => $username, 'password' => $password]),
+    ]
+]));
 
-if ($result->num_rows > 0) {
-  $row = $result->fetch_assoc();
-  // Verificar senha
-  if (password_verify($password, $row['password'])) {
-    // Iniciar sessão
-    session_start();
-    $_SESSION['user_id'] = $row['id'];
-    $_SESSION['username'] = $row['username'];
+$result = json_decode($response, true);
 
-    // Redirecionar para a página inicial
-    header("Location: index.php");
-  } else {
-    echo "Senha incorreta.";
-  }
+if ($result['success']) {
+    $_SESSION['user_id'] = $result['user_id'];
+    $_SESSION['username'] = $username;
+    header('Location: /');
 } else {
-  echo "Usuário não encontrado.";
+    echo "Login falhou: " . $result['message'];
 }
-
-$conn->close();
 ?>
