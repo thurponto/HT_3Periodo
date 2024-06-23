@@ -1,95 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínica de Vacinas - Unimed Noroeste do Paraná</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Portal de Saúde</title>
+  <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <a href="/">
-                <img src="logo.png" alt="Logo Unimed Noroeste do Paraná">
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/sobre">Sobre</a></li>
-                    <li><a href="/contato">Contato</a></li>
-                </ul>
-            </nav>
-            <div class="contato">
-                <p>SAC: 0800 041 4554</p>
-                <a href="#" class="button">Login</a>
-            </div>
+  <header>
+    <div class="dropdown">
+      <button class="dropbtn">⋮</button>
+      <div class="dropdown-content">
+        <a href="register.php">Cadastro</a>
+        <a href="login.php">Login</a>
+        <a href="#">Acessibilidade</a>
+      </div>
+    </div>
+    <h1>Portal de Saúde</h1>
+  </header>
+  <div class="container">
+    <?php
+    if (isset($_SESSION['user_id'])) {
+      echo "<h2>Bem-vindo, ". $_SESSION['username']. "!</h2>";
+      echo "<br><a href='logout.php'>Sair</a>";
+    } else {
+      echo "<h2>Você não está logado.</h2><br>";
+      echo "<p><a href='login.php'>Login</a> ou <a href='register.php'>Cadastro</a></p>";
+    }
+    ?>
+  </div>
+  <div class="carousel">
+    <div class="slides">
+        <div class="slide">
+            <img src="vacina-1.jpg" alt="Vacina 1" />
+            <p>Vacina 1</p>
         </div>
-    </header>
-
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Clínica de Vacinas</h1>
-                <p>Sua saúde em primeiro lugar.</p>
-                <a href="#" class="button">Agendar Vacinação</a>
-            </div>
-            <img src="hero-image.jpg" alt="Imagem da clínica de vacinas">
-        </section>
-
-        <section class="sobre">
-            <div class="container">
-                <h2>Sobre a Clínica</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, ullam accusamus labore aliquid distinctio beatae accusantium fugiat. Odit, quisquam. Quidem aliquid laborum ullam voluptatem accusantium doloribus! Quaerat, magni cumque minima voluptatum.</p>
-            </div>
-        </section>
-
-        <section class="servicos">
-            <div class="container">
-                <h2>Serviços</h2>
-                <div class="servicos-grid">
-                    <div class="servico">
-                        <img src="vacina-1.jpg" alt="Vacina 1">
-                        <h3>Vacina 1</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, voluptatum.</p>
-                    </div>
-                    <div class="servico">
-                        <img src="vacina-2.jpg" alt="Vacina 2">
-                        <h3>Vacina 2</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, voluptatum.</p>
-                    </div>
-                    <div class="servico">
-                        <img src="vacina-3.jpg" alt="Vacina 3">
-                        <h3>Vacina 3</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, voluptatum.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-       
-    </main>
-
-    <footer>
-    <section class="contato">
-            <div class="container">
-                <h2>Fale Conosco</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, ullam accusamus laborealiquid distinctio beatae accusantium fugiat. Odit, quisquam. Quidem aliquid laborum ullam voluptatem accusantium doloribus! Quaerat, magni cumque minima voluptatum.</p>
-                <form>
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome">
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email">
-                    <label for="mensagem">Mensagem:</label>
-                    <textarea id="mensagem" name="mensagem"></textarea>
-                    <button type="submit">Enviar</button>
-                </form>
-            </div>
-        </section>
-        <div class="container">
-            <p>&copy; 2023 Clínica de Vacinas - Unimed Noroeste do Paraná</p>
+        <div class="slide">
+            <img src="vacina-2.jpg" alt="Vacina 2" />
+            <p>Vacina 2</p>
         </div>
-    </footer>
-
-    <script src="script.js"></script>
+        <div class="slide">
+            <img src="vacina-3.jpg" alt="Vacina 3" />
+            <p>Vacina 3</p>
+        </div>
+        <div class="slide">
+            <img src="vacina-4.jpg" alt="Vacina 4" />
+            <p>Vacina 4</p>
+        </div>
+    </div>
+    <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+    <button class="next" onclick="plusSlides(1)">&#10095;</button>
+  </div>
+  <script src="carousel.js"></script>
 </body>
 </html>

@@ -1,24 +1,24 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Página Inicial</title>
-  <link rel="stylesheet" href="index.css">
-</head>
-<body>
-  <div class="container">
-    <?php
-    session_start();
+<?php
+require 'config.php';
 
-    // Verificar se o usuário está logado
-    if (isset($_SESSION['user_id'])) {
-      echo "<h1>Bem-vindo, ". $_SESSION['username']. "!</h1>";
-      echo "<br><a href='logout.php'>Sair</a>";
-    } else {
-      echo "<h1>Você não está logado.</h1><br>";
-      echo "<p><a href='login.php'>Login</a> ou <a href='register.php'>Cadastro</a></p>";
-    }
-    ?>
-  </div>
-</body>
-</html>
+$request = $_SERVER['REQUEST_URI'];
+
+switch ($request) {
+    case '/' :
+        require __DIR__ . '/home.php';
+        break;
+    case '/login' :
+        require __DIR__ . '/login.php';
+        break;
+    case '/register' :
+        require __DIR__ . '/register.php';
+        break;
+    case '/logout' :
+        require __DIR__ . '/logout.php';
+        break;
+    default:
+        http_response_code(404);
+        echo "Página não encontrada.";
+        break;
+}
+?>

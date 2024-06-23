@@ -2,26 +2,39 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Cadastro</title>
-  <link rel="stylesheet" href="register.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - Vacina Mais</title>
+  <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
+  <div class="container">
+    <img src="img/logo.png" alt="Vacina Mais" class="logo">
+    <h2>CADASTRO</h2>
+    <p>Preencha com seus dados.</p>
+    <form action="processar_registro.php" method="POST">
+      <label for="name">Nome</label>
+      <input type="text" id="name" name="name" placeholder="Digite seu nome completo aqui..." required>
 
-  <h2>Cadastro</h2>
-  <form action="processar_registro.php" method="post">
-    <label for="username">Nome de usuário:</label>
-    <input type="text" name="username" id="username" required><br><br>
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" placeholder="paciente@gmail.com" required>
 
-    <label for="password">Senha:</label>
-    <input type="password" name="password" id="password" required><br><br>
+      <label for="password">Senha</label>
+      <input type="password" id="password" name="password" placeholder="Digite sua senha aqui..." required>
 
-    <label for="email">E-mail:</label>
-    <input type="email" name="email" id="email" required><br><br>
+      <label for="confirm_password">Confirme sua senha</label>
+      <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirme sua senha aqui..." required>
 
-    <button type="submit">Cadastrar</button>
-  </form>
+      <label for="cpf">CPF</label>
+      <input type="text" id="cpf" name="cpf" placeholder="XXX.XXX.XXX-XX" required>
 
-  <p>Já tem uma conta? <a href="login.php">Faça login agora!</a></p>
+      <label for="dob">Data de nascimento</label>
+      <input type="text" id="dob" name="dob" placeholder="XX/XX/XXXX" required>
 
+      <label for="gender">Sexo</label>
+      <input type="text" id="gender" name="gender" placeholder="Escreva seu gênero aqui..." required>
+
+      <button type="submit">CONCLUIR</button>
+    </form>
+  </div>
 </body>
 </html>
