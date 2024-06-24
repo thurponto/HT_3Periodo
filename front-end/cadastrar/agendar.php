@@ -99,26 +99,3 @@ if (!$dados_agentes_saude || !is_array($dados_agentes_saude)) {
     exit('Erro ao buscar dados dos agentes de saúde.');
 }
 ?>
-
-<div>
-    <form action="" method="POST">
-        <label for="paciente">Nome do Paciente</label>
-        <select name="paciente" class="form-control" required>
-            <?php foreach ($dados_idosos as $idoso): ?>
-                <option value="<?= $idoso['id'] ?>"><?= $idoso['nome'] ?></option>
-            <?php endforeach; ?>
-        </select>
-        <label for="agenteSaude">Agente de Saúde</label>
-        <select name="agenteSaude" class="form-control" required>
-            <?php foreach ($dados_agentes_saude as $agente): ?>
-                <option value="<?= $agente['id'] ?>"><?= $agente['nome'] ?></option>
-            <?php endforeach; ?>
-        </select>
-        <label for="data">Data</label>
-        <input type="date" class="form-control" name="data" required>
-        <label for="hora">Hora</label>
-        <input type="time" class="form-control" name="hora" required>
-        <br>
-        <button type="submit" class="btn btn-success">Cadastrar</button>
-    </form>
-</div>
