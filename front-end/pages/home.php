@@ -10,12 +10,12 @@
     <header>
         <div class="logo">
             <img src="../imagens/logo2.png" alt="Logo">
-            <h1>Meu SUS Digital</h1>
+            <h1>Vaccin Clinica</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="?param=listar/listar" class="button">Listar Agendamentos</a></li>
-                <li><a href="?param=cadastrar/agendar" class="button">Criar Agendamento</a></li>
+                <li><a href="../pages/lista.php" class="button">Listar Agendamentos</a></li>
+                <li><a href="../pages/agenda.php" class="button">Criar Agendamento</a></li>
             </ul>
         </nav>
     </header>
@@ -25,8 +25,8 @@
                 <h2>Agendamento online de exames e vacinas</h2>
                 <p>Agende seus exames e vacinas comigo, sua plataforma de saúde digital!</p>
                 <div class="hero-buttons">
-                    <a href="?param=listar/listar" class="hero-button">Listar Agendamentos</a>
-                    <a href="?param=cadastrar/agendar" class="hero-button">Criar Agendamento</a>
+                    <a href="../pages/lista.php" class="hero-button">Listar Agendamentos</a>
+                    <a href="../pages/agenda.php" class="hero-button">Criar Agendamento</a>
                 </div>
             </div>
             <div class="hero-image">

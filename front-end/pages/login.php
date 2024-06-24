@@ -19,7 +19,7 @@ if ($_POST) {
 
     if ($httpcode == 200) {
         echo "<script>alert('Login bem-sucedido!');";
-        echo "window.location.href = 'pages/home.php';";
+        echo "window.location.href = '../pages/home.php';";
         echo "</script>";
     } else {
         echo "<script>alert('Erro: CPF ou data de nascimento incorretos');</script>";

@@ -35,7 +35,7 @@
 
         require "footer.php";
     } else {
-        require "..\pages\login.php";
+        require "../front-end/pages/login.php";
     }
 ?>
 </body>

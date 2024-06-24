@@ -28,7 +28,7 @@ if ($_POST) {
         "horario" => $_POST["hora"],
     ];
 
-    $url = "http://localhost:3000/api/agendamentos/$id";
+    $url = "http://localhost:3306/api/agendamentos/$id";
     $ch = curl_init($url);
 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

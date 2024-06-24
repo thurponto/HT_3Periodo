@@ -1,3 +1,3 @@
 <footer>
-    <p>&copy; 2023 Your Company</p>
+    <p>&copy; 2024 Your Company</p>
 </footer>
