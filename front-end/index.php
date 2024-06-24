@@ -30,12 +30,12 @@
         if(file_exists("$page.php")) {
             require "$page.php";
         } else {
-            require "pages/erro.php";
+            require "../pages/erro.php";
         }
 
         require "footer.php";
     } else {
-        require "pages/login.php";
+        require "..\pages\login.php";
     }
 ?>
 </body>

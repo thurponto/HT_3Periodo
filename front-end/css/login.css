@@ -1,0 +1,60 @@
+body {
+    background-color: #E8F6F3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.login {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+.login .logo {
+    width: 220px; /* Increase the width for a larger logo */
+    margin-bottom: 20px;
+}
+.login h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+.login label {
+    float: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.login input {
+    margin-bottom: 15px;
+    height: 45px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 0 10px;
+    width: 100%;
+}
+.login button {
+    background-color: #17a2b8;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+}
+.login button:hover {
+    background-color: #138496;
+}
+.cadastro-link {
+    margin-top: 20px;
+}
+.cadastro-link a {
+    color: #17a2b8;
+}
+.cadastro-link a:hover {
+    text-decoration: underline;
+}
