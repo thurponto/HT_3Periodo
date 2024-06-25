@@ -1,0 +1,11 @@
+{
+  "development": {
+    "username": "root",
+    "password": "",
+    "database": "saude",
+    "host": "localhost",
+    "dialect": "mysql",
+    "modelsPath": "models" 
+  }
+
+}
