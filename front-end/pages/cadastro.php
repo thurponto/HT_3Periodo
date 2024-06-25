@@ -46,11 +46,11 @@ if ($_POST) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuário</title>
-    <link rel="stylesheet" href="../css/cadastro.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
 </head>
 <body>
     <div class="cadastro">
-        <img src="../imagens/logo1.png" alt="Logo" class="logo">
+        <img src="./imagens/logo1.png" alt="Logo" class="logo">
         <h1>Cadastro de Usuário</h1>
         <form id="formCadastro" method="POST">
             <label for="nome">Nome:</label>
@@ -81,7 +81,7 @@ if ($_POST) {
             <button type="submit">Cadastrar</button>
         </form>
         <div class="login-link">
-            <p>Já tem uma conta? <a href="../pages/login.php">Login</a></p>
+            <p>Já tem uma conta? <a href="">Login</a></p>
         </div>
     </div>
 </body>

@@ -16,10 +16,10 @@ function buscarIdosos($url) {
     }
     
     $dados = json_decode($response, true);
-    if (!$dados) {
-        echo 'Formato de dados inválido.';
-        return false;
-    }
+    //if (!$dados) {
+       // echo 'Formato de dados inválido.';
+       // return false;
+    //}
 
     curl_close($ch);
     
@@ -43,10 +43,10 @@ function buscarAgentesSaude($url) {
     }
     
     $dados = json_decode($response, true);
-    if (!$dados) {
-        echo 'Formato de dados inválido.';
-        return false;
-    }
+    //if (!$dados) {
+       // echo 'Formato de dados inválido.';
+       // return false;
+    //}
 
     curl_close($ch);
     
@@ -79,7 +79,7 @@ if ($_POST) {
     if (curl_errno($ch)) {
         echo 'Erro ao fazer a requisição: ' . curl_error($ch);
     } else {
-        header('Location: ?param=listar/listar');
+        header('Location: lista');
     }
 
     curl_close($ch);
@@ -91,26 +91,17 @@ $url_agentes_saude = 'http://localhost:3000/api/agentes';
 $dados_idosos = buscarIdosos($url_idosos);
 $dados_agentes_saude = buscarAgentesSaude($url_agentes_saude);
 
-if (!$dados_idosos || !is_array($dados_idosos)) {
-    exit('Erro ao buscar dados dos idosos.');
-}
+//if (!$dados_idosos || !is_array($dados_idosos)) {
+    //exit('Erro ao buscar dados dos idosos.');
+//}
 
-if (!$dados_agentes_saude || !is_array($dados_agentes_saude)) {
-    exit('Erro ao buscar dados dos agentes de saúde.');
-}
+//if (!$dados_agentes_saude || !is_array($dados_agentes_saude)) {
+   // exit('Erro ao buscar dados dos agentes de saúde.');
+//}
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda</title>
-    <link rel="stylesheet" href="../css/agenda.css">
-</head>
-<body>
-    
 
 <div>
+    <li><a href="pages/home" class="button">Página Principal</a></li>
     <form action="" method="POST">
         <label for="paciente">Nome do Paciente</label>
         <select name="paciente" class="form-control" required>
@@ -132,5 +123,3 @@ if (!$dados_agentes_saude || !is_array($dados_agentes_saude)) {
         <button type="submit" class="btn btn-success">Cadastrar</button>
     </form>
 </div>
-</body>
-</html>
