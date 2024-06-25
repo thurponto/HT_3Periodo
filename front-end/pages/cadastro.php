@@ -10,7 +10,7 @@ if ($_POST) {
 
     $dataNascimentoFormatted = date('Y-m-d', strtotime($dataNascimento));
 
-    $url = 'http://localhost:3000/api/users';
+    $url = 'http://localhost:3000/api/cadastro';
     $data = json_encode(array(
         "nome" => $nome,
         "telefone" => $telefone,
