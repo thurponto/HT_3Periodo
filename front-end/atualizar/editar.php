@@ -18,7 +18,7 @@ if ($id) {
 
     curl_close($ch);
 } else {
-    header("Location: listar.php");
+    header("Location: ?param=listar/listar");
     exit();
 
 }
@@ -28,7 +28,7 @@ if ($_POST) {
         "horario" => $_POST["hora"],
     ];
 
-    $url = "http://localhost:3306/api/agendamentos/$id";
+    $url = "http://localhost:3000/api/agendamentos/$id";
     $ch = curl_init($url);
 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -41,7 +41,7 @@ if ($_POST) {
     if (curl_errno($ch)) {
         echo 'Erro ao fazer a requisição: ' . curl_error($ch);
     } else {
-        header('Location: ?action=listar');
+        header('Location: ?param=listar/listar');
         exit();
     }
 

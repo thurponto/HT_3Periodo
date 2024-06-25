@@ -18,14 +18,15 @@ if ($_POST) {
     curl_close($curl);
 
     if ($httpcode == 200) {
-        echo "<script>alert('Login bem-sucedido!');";
-        echo "window.location.href = '../pages/home.php';";
-        echo "</script>";
+
+        header("Location: ../pages/home");
     } else {
         echo "<script>alert('Erro: CPF ou data de nascimento incorretos');</script>";
     }
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,14 +34,12 @@ if ($_POST) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-
 <div class="login">
-    <img src="../imagens/logo2.png" alt="Logo" class="logo">
-    <h1 class="text-center">Efetuar Login</h1>
+<img src="../imagens/logo2.png" alt="Logo" class="logo">
+<h1 class="text-center">Efetuar Login</h1>
     <form method="POST">
         <label for="cpf">CPF:</label>
         <input type="text" name="cpf" id="cpf" class="form-control" required placeholder="Digite seu CPF">

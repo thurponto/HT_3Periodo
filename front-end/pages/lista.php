@@ -14,8 +14,8 @@
         </div>
         <nav>
             <ul>
-                <li><a href="home.php" class="button">Página Principal</a></li>
-                <li><a href="agenda.php" class="button">Criar Agendamento</a></li>
+                <li><a href="../pages/home.php" class="button">Página Principal</a></li>
+                <li><a href="../pages/agenda.php" class="button">Criar Agendamento</a></li>
             </ul>
         </nav>
     </header>

@@ -27,7 +27,8 @@
             <ul>
                 <?php if ($usuarioLogado): ?>
                     <li>
-                        <a href="?logout">Deslogar</a>
+                        <a href="?logout">Deslogar</a> <br>
+                        <a href="pages/vacinas">Importancia das vacinas</a>
                     </li>
                 <?php endif; ?>
             </ul>
