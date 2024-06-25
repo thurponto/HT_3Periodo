@@ -1,15 +1,15 @@
 <?php
-    session_start();
-    if (isset($_GET['logout'])) {
-        session_destroy();
-        exit;
-    }
+    // session_start();
+    // if (isset($_GET['logout'])) {
+    //     session_destroy();
+    //     exit;
+    // }
 
-    $usuarioLogado = isset($_SESSION['usuario']);
+    // $usuarioLogado = isset($_SESSION['usuario']);
 
-    if (!$usuarioLogado && basename($_SERVER['PHP_SELF']) != 'login.php') {
-        exit;
-    }
+    // if (!$usuarioLogado && basename($_SERVER['PHP_SELF']) != 'login.php') {
+    //     exit;
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -25,11 +25,12 @@
     <header>
         <nav>
             <ul>
-                <?php if ($usuarioLogado): ?>
+                
                     <li>
-                        <a href="?logout">Deslogar</a>
+                        <a href="?logout">Deslogar</a> <br>
+                        <a href="pages/vacinas">Importancia das vacinas</a>
                     </li>
-                <?php endif; ?>
+        
             </ul>
         </nav>
     </header>

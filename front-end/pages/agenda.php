@@ -1,61 +1,124 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Agendamento</title>
-    <link rel="stylesheet" href="../css/agenda.css">
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <img src="../imagens/logo2.png" alt="Logo">
-            <h1>Vaccin Clinica</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="home.php" class="button">Página Principal</a></li>
-                <li><a href="lista.php" class="button">Listar Agendamentos</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="main-content">
-        <h2>Criar Agendamento</h2>
-        <form action="agendar.php" method="post" class="form-agendamento">
-            <div class="form-group">
-                <label for="paciente">Nome do Paciente</label>
-                <select name="paciente" class="form-control" required>
-                    <?php
-                    include '../cadastrar/agendar.php';
-                    $dados_idosos = buscarIdosos('http://localhost:3000/api/idosos');
-                    foreach ($dados_idosos as $idoso) {
-                        echo '<option value="' . $idoso['id'] . '">' . $idoso['nome'] . '</option>';
-                    }
-                    ?>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="agenteSaude">Agente de Saúde</label>
-                <select name="agenteSaude" class="form-control" required>
-                    <?php
-                    $dados_agentes_saude = buscarAgentesSaude('http://localhost:3000/api/agentes-saude');
-                    foreach ($dados_agentes_saude as $agente) {
-                        echo '<option value="' . $agente['id'] . '">' . $agente['nome'] . '</option>';
-                    }
-                    ?>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="data">Data</label>
-                <input type="date" class="form-control" name="data" required>
-            </div>
-            <div class="form-group">
-                <label for="hora">Hora</label>
-                <input type="time" class="form-control" name="hora" required>
-            </div>
-            <br>
-            <button type="submit" class="btn btn-success">Cadastrar</button>
-        </form>
-    </div>
-</body>
-</html>
+<?php
+function buscarIdosos($url) {
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($ch);
+    
+    if (curl_errno($ch)) {
+        echo 'Erro ao fazer a requisição: ' . curl_error($ch);
+        return false;
+    }
+    
+    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    if ($http_code !== 200) {
+        echo 'Erro: Status do HTTP não foi 200';
+        return false;
+    }
+    
+    $dados = json_decode($response, true);
+    if (!$dados) {
+        echo 'Formato de dados inválido.';
+        return false;
+    }
+
+    curl_close($ch);
+    
+    return $dados;
+}
+
+function buscarAgentesSaude($url) {
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($ch);
+    
+    if (curl_errno($ch)) {
+        echo 'Erro ao fazer a requisição: ' . curl_error($ch);
+        return false;
+    }
+    
+    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    if ($http_code !== 200) {
+        echo 'Erro: Status do HTTP não foi 200';
+        return false;
+    }
+    
+    $dados = json_decode($response, true);
+    if (!$dados) {
+        echo 'Formato de dados inválido.';
+        return false;
+    }
+
+    curl_close($ch);
+    
+    return $dados;
+}
+
+if ($_POST) {
+    $paciente = $_POST['paciente'] ?? NULL;
+    $agenteSaude = $_POST['agenteSaude'] ?? NULL;
+    $data = $_POST['data'] ?? NULL;
+    $hora = $_POST['hora'] ?? NULL;
+
+    $data_agendamento = [
+        'idosoId' => $paciente,
+        'agenteSaudeId' => $agenteSaude,
+        'data' => $data,
+        'horario' => $hora,
+    ];
+
+    $url_agendamentos = 'http://localhost:3000/api/agenda';
+    $ch = curl_init($url_agendamentos);
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data_agendamento));
+
+    $response = curl_exec($ch);
+
+    if (curl_errno($ch)) {
+        echo 'Erro ao fazer a requisição: ' . curl_error($ch);
+    } else {
+        header('Location: ?param=listar/listar');
+    }
+
+    curl_close($ch);
+}
+
+$url_idosos = 'http://localhost:3000/api/idoso';
+$url_agentes_saude = 'http://localhost:3000/api/agentes';
+
+$dados_idosos = buscarIdosos($url_idosos);
+$dados_agentes_saude = buscarAgentesSaude($url_agentes_saude);
+
+if (!$dados_idosos || !is_array($dados_idosos)) {
+    exit('Erro ao buscar dados dos idosos.');
+}
+
+if (!$dados_agentes_saude || !is_array($dados_agentes_saude)) {
+    exit('Erro ao buscar dados dos agentes de saúde.');
+}
+?>
+
+<div>
+    <form action="" method="POST">
+        <label for="paciente">Nome do Paciente</label>
+        <select name="paciente" class="form-control" required>
+            <?php foreach ($dados_idosos as $idoso): ?>
+                <option value="<?= $idoso['id'] ?>"><?= $idoso['nome'] ?></option>
+            <?php endforeach; ?>
+        </select>
+        <label for="agenteSaude">Agente de Saúde</label>
+        <select name="agenteSaude" class="form-control" required>
+            <?php foreach ($dados_agentes_saude as $agente): ?>
+                <option value="<?= $agente['id'] ?>"><?= $agente['nome'] ?></option>
+            <?php endforeach; ?>
+        </select>
+        <label for="data">Data</label>
+        <input type="date" class="form-control" name="data" required>
+        <label for="hora">Hora</label>
+        <input type="time" class="form-control" name="hora" required>
+        <br>
+        <button type="submit" class="btn btn-success">Cadastrar</button>
+    </form>
+</div>
