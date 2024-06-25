@@ -14,8 +14,12 @@
         </div>
         <nav>
             <ul>
-                <li><a href="pages/lista" class="button">Listar Agendamentos</a></li>
-                <li><a href="pages/agenda" class="button">Criar Agendamento</a></li>
+                <li>
+                    <a href="?logout">Deslogar</a>
+                </li>
+                <li>
+                    <a href="pages/vacinas">Importância das vacinas</a>
+                </li>
             </ul>
         </nav>
     </header>

@@ -100,8 +100,25 @@ $dados_agentes_saude = buscarAgentesSaude($url_agentes_saude);
 //}
 ?>
 
+<link rel="stylesheet" href="./css/agenda.css">
+<header>
+        <div class="logo">
+            <img src="./imagens/logo2.png" alt="Logo">
+            <h1>Vaccin Clinica</h1>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="?logout">Deslogar</a>
+                </li>
+                <li>
+                    <a href="pages/vacinas">Importância das vacinas</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 <div>
-    <li><a href="pages/home" class="button">Página Principal</a></li>
+    <a href="pages/home" class="button">Página Principal</a>
     <form action="" method="POST">
         <label for="paciente">Nome do Paciente</label>
         <select name="paciente" class="form-control" required>
