@@ -9,10 +9,11 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-content: space-around;
+    align-items: center;
 }
 
 header .logo {
@@ -56,6 +57,7 @@ header nav ul li a.button:hover {
 
 .main-content {
     padding: 40px;
+    max-width: none;
 }
 
 .hero {

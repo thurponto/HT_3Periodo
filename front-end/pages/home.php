@@ -14,8 +14,12 @@
         </div>
         <nav>
             <ul>
-                <li><a href="listar/listar" class="button">Listar Agendamentos</a></li>
-                <li><a href="pages/agenda" class="button">Criar Agendamento</a></li>
+                <li>
+                    <a href="?logout">Deslogar</a>
+                </li>
+                <li>
+                    <a href="pages/vacinas">Importância das vacinas</a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -25,7 +29,7 @@
                 <h2>Agendamento online de exames e vacinas</h2>
                 <p>Agende seus exames e vacinas comigo, sua plataforma de saúde digital!</p>
                 <div class="hero-buttons">
-                    <a href="listar/listar" class="hero-button">Listar Agendamentos</a>
+                    <a href="pages/lista" class="hero-button">Listar Agendamentos</a>
                     <a href="pages/agenda" class="hero-button">Criar Agendamento</a>
                 </div>
             </div>

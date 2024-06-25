@@ -16,10 +16,10 @@ function buscarIdosos($url) {
     }
     
     $dados = json_decode($response, true);
-    if (!$dados) {
-        echo 'Formato de dados inválido.';
-        return false;
-    }
+    //if (!$dados) {
+       // echo 'Formato de dados inválido.';
+       // return false;
+    //}
 
     curl_close($ch);
     
@@ -43,10 +43,10 @@ function buscarAgentesSaude($url) {
     }
     
     $dados = json_decode($response, true);
-    if (!$dados) {
-        echo 'Formato de dados inválido.';
-        return false;
-    }
+    //if (!$dados) {
+       // echo 'Formato de dados inválido.';
+       // return false;
+    //}
 
     curl_close($ch);
     

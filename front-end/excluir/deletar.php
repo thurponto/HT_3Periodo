@@ -14,7 +14,7 @@ if ($id) {
     if (curl_errno($ch)) {
         echo 'Erro ao excluir o idoso.';
     } else {
-        header('Location: ?param=listar/listar');
+        header('Location: pages/lista');
         echo 'Idoso excluído com sucesso.';
     }
 

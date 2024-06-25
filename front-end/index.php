@@ -34,7 +34,6 @@
 
         $page = "$pasta/$arquivo";
 
-       require "header.php";
 
         if(file_exists("$page.php")) {
             require "$page.php";
@@ -42,7 +41,6 @@
             require "./pages/erro.php";
         }
 
-       require "footer.php";
     } else {
         require "pages/login.php";
     }

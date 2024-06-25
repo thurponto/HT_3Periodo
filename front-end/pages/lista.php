@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar Agendamentos</title>
-    <link rel="stylesheet" href="../css/lista.css">
+    <link rel="stylesheet" href="./css/lista.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="../imagens/logo2.png" alt="Logo">
+            <img src="./imagens/logo2.png" alt="Logo">
             <h1>Vaccin Clinica</h1>
         </div>
         <nav>

@@ -28,7 +28,7 @@ if ($_POST) {
 
 
 
-
+<link rel="stylesheet" href="./css/login.css">
 <div class="login">
 <img src="./imagens/logo2.png" alt="Logo" class="logo">
 <h1 class="text-center">Efetuar Login</h1>
